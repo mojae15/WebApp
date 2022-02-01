@@ -1,0 +1,46 @@
+﻿@model WebApp.Models.Opgaver
+
+@{
+    ViewData["Title"] = "Ændrer";
+}
+
+<h1>Ændrer</h1>
+
+<h4>Opgaver</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="navn" class="control-label">Navn</label>
+                <input asp-for="navn" class="form-control" />
+                <span asp-validation-for="navn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="minAlder" class="control-label">Minimums Alder</label>
+                <input asp-for="minAlder" class="form-control" />
+                <span asp-validation-for="minAlder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="medarbejder" class="control-label">Medarbejder</label>
+                <select asp-for="medarbejder" asp-items="@ViewBag.medarbejderList"></select>
+                <span asp-validation-for="medarbejder" class="text-danger"></span>
+
+                <span class="text-danger">@TempData["ErrorMessage"]</span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gem" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Tilbage til liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

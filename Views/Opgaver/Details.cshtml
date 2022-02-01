@@ -1,0 +1,36 @@
+﻿@model WebApp.Models.Opgaver
+
+@{
+    ViewData["Title"] = "Detaljer";
+}
+
+<h1>Detaljer</h1>
+
+<div>
+    <h4>Opgaver</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Navn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.navn)
+        </dd>
+        <dt class = "col-sm-2">
+            Minimums Alder
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.minAlder)
+        </dd>
+        <dt class = "col-sm-2">
+            Medarbejder
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.medarbejder)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Ændrer</a> |
+    <a asp-action="Index">Tilbage til liste</a>
+</div>

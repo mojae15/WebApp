@@ -1,0 +1,48 @@
+﻿@model WebApp.Models.Medarbejder
+
+@{
+    ViewData["Title"] = "Opret";
+}
+
+<h1>Opret</h1>
+
+<h4>Medarbejder</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="navn" class="control-label">Navn</label>
+                <input asp-for="navn" class="form-control" />
+                <span asp-validation-for="navn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="telefonNummer" class="control-label">Telefon Nummer</label>
+                <input asp-for="telefonNummer" class="form-control" />
+                <span asp-validation-for="telefonNummer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="eMail" class="control-label">E-Mail</label>
+                <input asp-for="eMail" class="form-control" />
+                <span asp-validation-for="eMail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="alder" class="control-label">Alder</label>
+                <input asp-for="alder" class="form-control" />
+                <span asp-validation-for="alder" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Opret" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Tilbage til liste</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

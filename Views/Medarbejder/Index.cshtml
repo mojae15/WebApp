@@ -1,0 +1,55 @@
+﻿@model IEnumerable<WebApp.Models.Medarbejder>
+
+
+@{
+    ViewData["Title"] = "Medarbejdere";
+}
+
+<h1>Index</h1>
+
+<p>
+    <input type="button" value="Opret" onclick="location.href='@Url.Action("Create", "Medarbejder")'" />
+
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Navn
+            </th>
+            <th>
+                Telefonnummer
+            </th>
+            <th>
+                E-Mail
+            </th>
+            <th>
+                Alder
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.navn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefonNummer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.alder)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Ændrer</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detaljer</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Slet</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,38 @@
+﻿@model WebApp.Models.Opgaver
+
+@{
+    ViewData["Title"] = "Slet";
+}
+
+<h1>Slet Opgave</h1>
+
+<h3>Er du sikker på at du vil slette denne opgave?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Navn
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.navn)
+        </dd>
+        <dt class = "col-sm-2">
+            Minimums Alder
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.minAlder)
+        </dd>
+        <dt class = "col-sm-2">
+            Medarbejder
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.medarbejder)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Slet" class="btn btn-danger" /> |
+        <a asp-action="Index">Tilbage til liste</a>
+    </form>
+</div>
